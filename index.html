@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- SCRIPTS -->
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="searchbar">
+            <form>
+                <label for="location-input"><i class="fa-solid fa-location-dot"></i></label>
+                <input type="text" placeholder="Para onde vamos?" id="location-input">
+                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="error-container">
+            O local digitado não foi encontrado
+        </div>
+        <div class="data-container">
+            <div class="temperature-container">
+                <img class="temperature-image" id="temperature-icon" src="" alt="" id="icon">
+                <div class="temperature-data">
+                    <h1 id="current-temperature">27</h1>
+                    <p>°C</p>
+                </div>
+                <p  class="location" id="location">Mogi das Cruzes</p>
+            </div>
+            <div class="weekly-container">
+            </div>
+            <div class="other__data-container">
+                <div class="info-card feels">
+                    <p class="info-name">
+                        Sensação térmica
+                    </p>
+                    <p class="info-data" id="feels-like">
+                    </p>
+                </div>
+                <div class="info-card humidity">
+                    <p class="info-name">
+                        Humidade
+                    </p>
+                    <p class="info-data" id="humidity">
+                    </p>
+                </div>
+                <div class="info-card clouds">
+                    <p class="info-name">
+                        Nuvens
+                    </p>
+                    <p class="info-data"  id="clouds">
+                    </p>
+                </div>
+                <div class="info-card wind">
+                    <p class="info-name">
+                        Vento
+                    </p>
+                    <p class="info-data" id="wind">
+                    </p>
+                </div>
+                <div class="info-card rain">
+                    <p class="info-name">
+                        Chuva
+                    </p>
+                    <p class="info-data" id="rain">
+                    </p>
+                </div>
+                <div class="info-card pressure">
+                    <p class="info-name">
+                        Pressão
+                    </p>
+                    <p class="info-data" id="pressure">
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

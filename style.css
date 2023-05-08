@@ -1,0 +1,261 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    
+    font-family: system-ui;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    padding: 1em;
+    max-width: 350px;
+
+    background-color: #fffa;
+    
+    border-radius: 2em;
+}
+.searchbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+}
+.searchbar form{
+    margin: 0 1em;
+    display: flex;
+    width: 100%;
+    
+    padding-bottom: .2em;
+    border-bottom: 1px solid #333;
+}
+.searchbar i{
+    color: #333;
+}
+.searchbar input{
+    flex: 1;
+    font-weight: 200;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: .3em .5em;
+}
+.searchbar button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.error-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 0;
+    
+    font-weight: 700;
+    color: #333;
+
+    overflow: hidden;
+    
+    transition: all ease-in-out .2s;
+}
+.error-container.shown{
+    height: 100px;
+}
+
+.data-container{
+    height: 0;
+    
+    transition: all ease-in-out .2s;
+    
+    overflow: auto;
+}
+.data-container.shown{
+    padding: 1em;
+    height: 64vh;
+
+}
+.data-container::-webkit-scrollbar{
+    width: 4px;
+    background-color: #3334;
+    border-radius: 8px;
+}
+.data-container::-webkit-scrollbar-thumb{
+    background-color: #333;
+    border-radius: 8px;
+}
+
+
+.temperature-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+
+    padding: 1em;
+}
+.temperature-image{
+    width: 80%;
+}
+.temperature-data{
+    display: flex;
+    color: #333;
+}
+.temperature-data h1{
+    font-size: 64px;
+}
+.temperature-data p{
+    font-size: 16px;
+    padding: 1.2em 0 0 .3em;
+}
+.location{
+    margin-top: -16px;
+    font-size: 22px;
+}
+
+.weekly-container{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+
+    margin-top: 2em;
+}
+.week__card{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 1em;
+
+    background-color: #fff7;
+    
+    border-radius: .8em;
+}
+.week-day{
+    font-size: 12px;
+    font-weight: 200;
+    font-weight: 700;
+}
+.week__card .week-min-max{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+.week__card .week-min-max p{
+    display: flex;
+    align-items: start;
+    color: #d63030;
+}
+.week__card .week-min-max p.min{
+    color: #3e89d3;
+}
+.week__card .week-min-max span{
+    font-size: 8px;
+    margin: 2px 0 0 2px;
+}
+
+.daily-container{
+    display: flex;
+    gap: 1em;
+    
+    overflow-x: auto;
+
+    margin-top: 2em;
+    padding: .3em 0;
+
+
+    border-radius: .4em;
+}
+.daily-container::-webkit-scrollbar {
+    background-color: #fffa;
+    height: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.daily-container::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 1em;
+}
+
+.day-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: .5em 1.1em;
+
+    background-color: #fff;
+    border-radius: .3em;
+}
+.day-card .day{
+    font-size: 14px;
+    margin-bottom: .2em;
+}
+.day-temperature{
+    font-size: 14px;
+    font-weight: 800;
+}
+.day-temperature span{
+    font-size: 10px;
+    font-weight: 800;
+}
+.day-icon{
+    width: 48px;
+}
+
+.other__data-container{
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    
+    margin-top: 2em;
+}
+
+.info-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 4px;
+
+    color: #333;
+    background-color: #fffa;
+    border-radius: .3em;
+}
+.info-data{
+    text-align: center;
+    font-weight: 700;
+}
+.info-data span{
+    font-size: 12px;
+    font-weight: 200;
+}
+.feels{
+    grid-column: 1 / span 2;
+}
+.wind{
+    grid-column: 2 / span 2;
+}
+.pressure{
+    grid-row: 3;
+    grid-column: 1 / span 2;
+}
