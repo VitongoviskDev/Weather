@@ -97,7 +97,7 @@ function DisplayData([currentData, dailyData]){
         weekCard.classList.add('week__card');
         weekCard.innerHTML = `
             <p class="week-day">${weekDay}.</p>
-            <img src="http://openweathermap.org/img/w/${day.weather[0].icon}.png" alt"${day.weather[0].main}" />
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt"${day.weather[0].main}" />
             <div class="week-min-max">
                 <p class="min">${min}<span>°C</span></p>
                 <p>${max}<span>°C</span></p>
