@@ -33,7 +33,6 @@ async function GetWeather() {
         DisplayData(data);
     })
     .catch(error => {
-        console.log(error);
         dataContainer.classList.remove('shown');
         errorContainer.classList.add('shown');
     });
@@ -62,7 +61,7 @@ function ClearData(){
     rain.innerHTML = '';
 }
 function DisplayData([currentData, dailyData]){
-    
+    locationInput.value = '';
     dataContainer.classList.add('shown');
     
     const kelvin = 273.1;
