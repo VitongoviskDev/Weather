@@ -66,21 +66,20 @@ function DisplayData([currentData, dailyData]){
     dataContainer.classList.add('shown');
     
     const kelvin = 273.1;
-    const description = currentData.weather[0].description
-    const isDay = currentData.weather[0].icon[2] === 'd' ? 'D' : 'N'
-    console.isDay;
-    console.log(description + isDay);
-    document.body.style.backgroundImage = `url("./assets/${description}${isDay}.jpg")`;
 
+    
     //CURRENT DATA
-
+    
     const temperatureIcon = document.getElementById('temperature-icon');
     const currentTemperature = document.getElementById('current-temperature');
     const city = document.getElementById('location');
+    const icon = currentData.weather[0].icon
     
-    temperatureIcon.src = `http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
+    console.log(icon)
+    document.body.style.backgroundImage = `url("./assets/${icon}.jpg")`;
+    temperatureIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
     currentTemperature.textContent = (currentData.main.temp - kelvin).toFixed();
-    city.textContent = `${currentData.name} - ${currentData.sys.country}`;
+    city.textContent = `${currentData.name}`;
     //WEEKLY DATA
     const weeklyContainer = document.querySelector('.weekly-container');
     const list = dailyData.list;

@@ -18,7 +18,7 @@ body{
 }
 .container{
     padding: 1em;
-    max-width: 350px;
+    width: min(80%, 400px);
 
     background-color: #fffa;
     
@@ -33,8 +33,7 @@ body{
 .searchbar form{
     margin: 0 1em;
     display: flex;
-    width: 100%;
-    
+    width: 80%;
     padding-bottom: .2em;
     border-bottom: 1px solid #333;
 }
@@ -43,12 +42,13 @@ body{
 }
 .searchbar input{
     flex: 1;
+    min-width: 0;
+    padding: .3em .5em;
     font-weight: 200;
     color: #333;
     background-color: transparent;
     border: none;
     outline: none;
-    padding: .3em .5em;
 }
 .searchbar button{
     background-color: transparent;
@@ -107,7 +107,8 @@ body{
     padding: 1em;
 }
 .temperature-image{
-    width: 80%;
+    width: 60%;
+    margin-bottom: -32px;
 }
 .temperature-data{
     display: flex;
