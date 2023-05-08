@@ -150,6 +150,9 @@ body{
     font-weight: 200;
     font-weight: 700;
 }
+.week__card img{
+    height: 48px;
+}
 .week__card .week-min-max{
     display: flex;
     align-items: center;
