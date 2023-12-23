@@ -23,8 +23,9 @@ searchButton.addEventListener("click", () => {
 async function GetWeather() {
     const key = 'b3cb7a8073b752ab489692f04606ded3';
     const currentWeather = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput.value}&appid=${key}`;
-    const dailyForecast = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${locationInput.value}&cnt=7&appid=${key}`
-    const urls = [currentWeather, dailyForecast];
+    //const dailyForecast = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${locationInput.value}&cnt=7&appid=${key}`
+    //const urls = [currentWeather, dailyForecast];
+    const urls = [currentWeather];
     
     Promise.all(urls.map(url => {
       return fetch(url).then(response => response.json());
@@ -33,6 +34,7 @@ async function GetWeather() {
         DisplayData(data);
     })
     .catch(error => {
+        console.log("ERROR: " , error)
         dataContainer.classList.remove('shown');
         errorContainer.classList.add('shown');
     });
@@ -60,7 +62,9 @@ function ClearData(){
     pressure.innerHTML = '';
     rain.innerHTML = '';
 }
-function DisplayData([currentData, dailyData]){
+//function DisplayData([currentData, dailyData]){
+function DisplayData([currentData]){
+
     locationInput.value = '';
     dataContainer.classList.add('shown');
     
@@ -74,37 +78,38 @@ function DisplayData([currentData, dailyData]){
     const city = document.getElementById('location');
     const icon = currentData.weather[0].icon
     
-    console.log(icon)
+    console.log(currentTemperature)
     document.body.style.backgroundImage = `url("./assets/${icon}.jpg")`;
     temperatureIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
     currentTemperature.textContent = (currentData.main.temp - kelvin).toFixed();
     city.textContent = `${currentData.name}`;
     //WEEKLY DATA
     const weeklyContainer = document.querySelector('.weekly-container');
-    const list = dailyData.list;
-    const weekdays = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
-    list.map(day => {
-        const date = new Date(day.dt * 1000);
-        const weekDay = weekdays[date.getDay()]
+    
+    // const list = dailyData.list;
+    // const weekdays = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
+    // list.map(day => {
+    //     const date = new Date(day.dt * 1000);
+    //     const weekDay = weekdays[date.getDay()]
 
-        const max = (day.temp.max - 273.1).toFixed();
-        const min = (day.temp.min - 273.1).toFixed();
-        const cday = (day.temp.day - 273.1).toFixed();
+    //     const max = (day.temp.max - 273.1).toFixed();
+    //     const min = (day.temp.min - 273.1).toFixed();
+    //     const cday = (day.temp.day - 273.1).toFixed();
 
-        console.log('temp: ', cday);
+    //     console.log('temp: ', cday);
 
-        const weekCard = document.createElement('div');
-        weekCard.classList.add('week__card');
-        weekCard.innerHTML = `
-            <p class="week-day">${weekDay}.</p>
-            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt"${day.weather[0].main}" />
-            <div class="week-min-max">
-                <p class="min">${min}<span>°C</span></p>
-                <p>${max}<span>°C</span></p>
-            </div>
-        `;
-        weeklyContainer.appendChild(weekCard);
-    })
+    //     const weekCard = document.createElement('div');
+    //     weekCard.classList.add('week__card');
+    //     weekCard.innerHTML = `
+    //         <p class="week-day">${weekDay}.</p>
+    //         <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt"${day.weather[0].main}" />
+    //         <div class="week-min-max">
+    //             <p class="min">${min}<span>°C</span></p>
+    //             <p>${max}<span>°C</span></p>
+    //         </div>
+    //     `;
+    //     weeklyContainer.appendChild(weekCard);
+    // })
 
     // OTHER DATA
     const feelsLike = document.getElementById('feels-like');
